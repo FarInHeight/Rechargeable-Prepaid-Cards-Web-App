@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='robots' content='noindex, nofollow'>
+    <meta name='keywords' content='...'>
+    <meta name='description' content='...'>
+    <title> Error </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <div th:replace="~{./add-ons/header :: header}"></div>
+
+    <div class="container">
+        <h3>
+            <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                <img style="height: 30%;" th:src="@{~/images/access-denied.png}" alt="Access Denied" />
+                I'm sorry, but you are not allowed to access this resource. <br />
+                Click on the logo button to return to the home page or use the menu to use any function you are allowed
+                to use.
+            </a>
+
+        </h3>
+    </div>
+
+    <div th:replace="~{./add-ons/footer :: footer}">...</div>
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='robots' content='noindex, nofollow'>
+    <meta name='keywords' content='...'>
+    <meta name='description' content='...'>
+    <title> Header </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div th:fragment="header">
+
+        <div class="container-fluid bg-light mb-5 border-bottom">
+
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                    <a href="/" class="navbar-brand">
+                        <img style="width: 100px; border-radius: 15px;" th:src="@{/images/cardify.png}"
+                            alt="Cardify With Sferra" />
+                    </a>
+                    <div class="d-flex">
+                        <div sec:authorize="isAnonymous()" class="col-md-3 text-end">
+                            <a class="btn btn-dark btn-lg" href="#" role="button" th:href="@{/users/login}">
+                                Login
+                            </a>
+                        </div>
+
+                        <div sec:authorize="hasAnyAuthority('admin')">
+                            <div class="btn-group">
+                                <button class="btn btn-dark btn-lg dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Menu
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end dropdown-menu-dark">
+                                    <li>
+                                        <h6 class="dropdown-header">Welcome back <br /> <span
+                                                sec:authentication="name">Username</span>
+                                            &nbsp;
+                                            <span style="font-style: italic;"
+                                                sec:authentication="principal.authorities">Roles</span>
+                                        </h6>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/cards/check-credit">
+                                            Check Credit of a Card
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/cards/admin/create-card">
+                                            Create a New Card
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/cards/admin/unblock-block-card">
+                                            Unblock or Block a Card
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/users/admin/create-merchant">
+                                            Create a Merchant User
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/users/admin/unblock-block-merchant">
+                                            Unblock or Block a Merchant User
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/transactions/show-transactions">
+                                            Show All Transactions
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" th:href="@{/users/logout}">
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div sec:authorize="hasAnyAuthority('merchant')">
+                            <div class="btn-group">
+                                <button class="btn btn-dark btn-lg dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Menu
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-end dropdown-menu-dark">
+                                    <li>
+                                        <h6 class="dropdown-header">Welcome back <br /> <span
+                                                sec:authentication="name">Username</span>
+                                            &nbsp;
+                                            <span style="font-style: italic;"
+                                                sec:authentication="principal.authorities">Roles</span>
+                                        </h6>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/cards/check-credit">
+                                            Check Credit of a Card
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/cards/merchant/subtract-add-credit">
+                                            Subtract or Add Credit
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="/transactions/show-transactions">
+                                            Show My Transactions
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" th:href="@{/users/logout}">
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

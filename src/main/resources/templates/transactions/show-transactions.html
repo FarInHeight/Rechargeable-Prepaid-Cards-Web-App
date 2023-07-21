@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='robots' content='noindex, nofollow'>
+    <meta name='keywords' content='...'>
+    <meta name='description' content='...'>
+    <title> Show Transactions </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script defer type="application/javascript" th:src="@{~/scripts/show_transactions.js}"></script>
+</head>
+
+<body>
+    <div th:replace="~{./add-ons/header :: header}"></div>
+
+    <div class="container">
+        <h2 class="text-center">Show Transactions <br /> &nbsp; <button id="reload" type="button" class="btn btn-secondary float-end">Reload</button> </h2>
+
+        <div style="height: 450px; overflow: auto;" class="table-responsive rounded border mt-3 mb-5">
+            <table class="table table-hover">
+                <thead style="position: sticky; top: 0; z-index: 1;">
+                    <tr id="firstrow">
+                        <th>Username</th>
+                        <th>Card Number</th>
+                        <th>Credit (in EUR)</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="tablebody">
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div th:replace="~{./add-ons/footer :: footer}">...</div>
+
+</body>
+
+</html>
