@@ -59,6 +59,7 @@ public class WebSecurityConfiguration {
                         .requestMatchers("/cards/admin/**").hasAuthority("admin")
                         .requestMatchers("/scripts/admin/**").hasAuthority("admin")
                         .requestMatchers("/transactions/**").hasAnyAuthority("merchant", "admin")
+                        .requestMatchers("/scripts/show_transactions.js").hasAnyAuthority("merchant", "admin")
                         .requestMatchers("/add-ons/**").denyAll()
                         .anyRequest().authenticated())
                 .exceptionHandling((exc) -> exc
