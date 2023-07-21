@@ -17,6 +17,8 @@ Each merchant can:
 
 Anyone can see the credit of a specific card by its number.
 
+> In order to run the project properly, it is not mandatory but recommended to read the [images README file](./src/main/resources/static/images/README.md).
+
 ## Project Specifications
 
 The project is built using Spring Boot + Spring Security for the backend and JS + jQuery + Bootstrap for the frontend.
